@@ -6,4 +6,4 @@ const server = express()
 server.use(express.urlencoded({ extended: true }))
 server.use(routes)
 
-server.listen(8080, () => {console.log('server is running')})
+server.listen(8080, () => {console.log('server is running =D')})

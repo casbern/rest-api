@@ -1,4 +1,4 @@
-const data = require('data.json')
+const data = require('./data.json')
 const fs = require('fs')
 
 module.exports = {
@@ -8,8 +8,10 @@ module.exports = {
   },
 
   create(req,res) {
-
+    console.log("I am here")
+    console.log(req.body)
     const keys = Object.keys(req.body)
+    console.log(keys)
 
     let {
       name,
@@ -36,7 +38,7 @@ module.exports = {
       if(err) {
         return res.send('error')
       }
-      return res.send('Your course was added')
+      return res.send(data)
     })
   }
 }
