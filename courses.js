@@ -8,37 +8,96 @@ module.exports = {
   },
 
   create(req,res) {
-    console.log("I am here")
     console.log(req.body)
-    const keys = Object.keys(req.body)
-    console.log(keys)
+    //* req.body always come as an object. 
+    //* The keys are the form names and the values what you typed.
 
     let {
+      id,
       name,
       author,
       price
     } = req.body
 
-    const lastCourse = data.courses[data.courses.length - 1]
-    let id
-
-    if(lastCourse) {
-      id = lastCourse.id + 1
-    } else {
-      id = 1
-    }
+    console.log('this are the keys:', name, author, price)
 
     data.courses.push({
+      id,
       name, 
       author,
       price
     })
 
+    console.log('data', data) 
+    //* At this point you pushed to 'data' the new course, you have this in memory
+    //* But you do not have it in actually data.json file.
+    //* You will have it there when the below part executes too.
+
     fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err) {
       if(err) {
         return res.send('error')
       }
-      return res.send(data)
+      return res.send(data.courses)
+    })
+  },
+
+  update(req,res) {
+    const {id} = req.body
+    console.log('id', req.body)
+
+    let index = 0
+
+    /* It will take the array of objects (data.courses) and take one object
+    per time, analysing if the id of that object is the same as the one you 
+    just received. */
+    const foundCourse = data.courses.find(function(course, foundIndex) {
+      if(id == course.id) {
+        index = foundIndex
+        console.log(index)
+        return true
+      }
+    })
+
+    console.log('foundCourse', foundCourse)
+
+    if(!foundCourse) {
+      return res.status(404).send('not found')
+    }
+
+    data.courses[index] = {
+      ...foundCourse,
+      ...req.body
+    }
+
+    fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err) {
+      if(err) {
+        return res.send('error')
+      }
+      return res.send(data.courses)
+    })
+  },
+
+  delete(req,res) {
+    const {id} = req.body
+    console.log(id, req.body)
+
+    /* Filter will take this array of objects (data.courses) and will 
+    give back an array with all courses that is not a match with the requested
+    id on req.body */
+    const filteredCourses = data.courses.filter(function(course) {
+      return course.id != id
+    })
+
+    console.log('all courses left', filteredCourses)
+
+    data.courses = filteredCourses
+
+    fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err) {
+      if(err) {
+        return res.send('error')
+      }
+
+      return res.send('it was deleted')
     })
   }
 }

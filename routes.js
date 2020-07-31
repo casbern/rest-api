@@ -4,7 +4,7 @@ const Courses = require('./courses')
 
 routes.get('/', Courses.all)
 routes.post('/courses/create', Courses.create)
-//routes.put('/', Courses.update)
-//routes.delete('/', Courses.delete)
+routes.put('/courses/:id', Courses.update)
+routes.delete('/courses/:id', Courses.delete)
 
 module.exports = routes

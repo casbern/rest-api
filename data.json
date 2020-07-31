@@ -1,7 +1,28 @@
 {
   "courses": [
-    {},
-    {},
-    {}
+    {
+      "id": 1,
+      "name": "JS the most course",
+      "author": "Mosh",
+      "price": "20"
+    },
+    {
+      "id": 2,
+      "name": "JS the most course",
+      "author": "Mosh",
+      "price": "20"
+    },
+    {
+      "id": 5,
+      "name": "JS the most course",
+      "author": "Mosh",
+      "price": "20"
+    },
+    {
+      "id": 6,
+      "name": "JS the most course",
+      "author": "Mosh",
+      "price": "20"
+    }
   ]
 }
