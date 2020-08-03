@@ -1,0 +1,11 @@
+GET all
+curl -v -XGET -H "Content-type: application/json" 'http:/localhost:8080/courses'
+
+POST
+curl -v -XPOST -H "Content-type: application/json" -d '{"id":7, "name": "Cozinhe", "author": "Lulu", "price": 50}' 'http:/localhost:8080/courses/create'
+
+PUT
+curl -v -XPUT -H "Content-type: application/json" -d '{"id":7, "name": "Cozinhe comigo", "author": "Lulu", "price": 50}' 'http:/localhost:8080/courses/7'
+
+DELETE
+curl -v -XDELETE -H "Content-type: application/json" -d '{"id":7, "name": "Cozinhe comigo", "author": "Lulu", "price": 50}' 'http:/localhost:8080/courses/7'
