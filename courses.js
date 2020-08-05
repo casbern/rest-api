@@ -54,7 +54,7 @@ module.exports = {
       if(id == course.id) {
         index = foundIndex
         console.log(index)
-        return true
+        return index
       }
     })
 
@@ -73,7 +73,7 @@ module.exports = {
       if(err) {
         return res.send('error')
       }
-      return res.send(data.courses)
+      return res.send(`${data.courses[index]} was updated`)
     })
   },
 

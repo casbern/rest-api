@@ -23,6 +23,42 @@
       "name": "JS the most course",
       "author": "Mosh",
       "price": "20"
+    },
+    {
+      "id": 8,
+      "name": "Node Modification",
+      "author": "Cris",
+      "price": 150
+    },
+    {
+      "id": 9,
+      "name": "Node",
+      "author": "Cris",
+      "price": 15
+    },
+    {
+      "id": 10,
+      "name": "Node",
+      "author": "Cris",
+      "price": 15
+    },
+    {
+      "id": 11,
+      "name": "Node",
+      "author": "Cris",
+      "price": 15
+    },
+    {
+      "id": 12,
+      "name": "Node",
+      "author": "Cris",
+      "price": 15
+    },
+    {
+      "id": 13,
+      "name": "Node Modification",
+      "author": "Cris",
+      "price": 150
     }
   ]
 }
