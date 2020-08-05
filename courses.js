@@ -73,7 +73,7 @@ module.exports = {
       if(err) {
         return res.send('error')
       }
-      return res.send(`${data.courses[index]} was updated`)
+      return res.send(data.courses[index])
     })
   },
 
